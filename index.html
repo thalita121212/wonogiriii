@@ -795,12 +795,9 @@
     <li><a href="#jelajah">Jelajah</a></li>
     <li><a href="#peta">Peta</a></li>
     <li><a href="#rute">Rute Wisata</a></li>
-    <li><a href="#klaster">Klaster</a></li>
     <li><a href="#analisis">Choropleth</a></li>
     <li><a href="#grafik">Grafik</a></li>
     <li><a href="#tabelData">Tabel</a></li>
-    <li><a href="#kesimpulan">Kesimpulan</a></li>
-    <li><a href="#metodologi">Metode</a></li>
     <li><a href="#tentang-penelitian">Tentang</a></li>
   </ul>
   <div style="display:flex;gap:.5rem;align-items:center"><button onclick="openDash()" style="background:rgba(200,146,42,0.15);color:var(--gold);border:1px solid rgba(200,146,42,0.35);padding:7px 14px;border-radius:4px;font-family:var(--font-body);font-size:.8rem;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(200,146,42,0.28)'" onmouseout="this.style.background='rgba(200,146,42,0.15)'">⚙️ Dashboard</button><a href="#" class="nav-cta" onclick="openModal(); return false;">Daftarkan UMKM</a></div>
@@ -948,95 +945,6 @@
   </div>
 </section>
 
-<!-- CLUSTER ANALYSIS SECTION -->
-<section class="cluster-section" id="klaster">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-tag">Analisis Spasial</div>
-      <h2 class="sec-title">Analisis Klaster UMKM & Wisata Wonogiri</h2>
-      <p class="sec-sub">Nearest Neighbor Analysis (NNA) untuk mengetahui pola distribusi spasial — apakah UMKM di Wonogiri mengelompok, menyebar, atau acak.</p>
-    </div>
-
-    <div class="cluster-grid">
-
-      <!-- NNI RESULT CARD -->
-      <div class="cluster-card featured reveal">
-        <h3>Nearest Neighbor Index (NNI)</h3>
-        <p>Nilai NNI dihitung dari 86 titik koordinat UMKM & wisata menggunakan rumus: R = D̄obs / D̄exp</p>
-        <div class="nni-display">
-          <div>
-            <div class="nni-value" id="nniValue">—</div>
-            <div class="nni-label">Nilai R (Nearest Neighbor Ratio)</div>
-          </div>
-          <div>
-            <span class="nni-verdict clustered" id="nniVerdict">Menghitung...</span>
-            <div class="nni-label" style="margin-top:.5rem" id="nniDesc">—</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-box">
-            <div class="val" id="statN">86</div>
-            <div class="lbl">Total Titik</div>
-          </div>
-          <div class="stat-box">
-            <div class="val" id="statDobs">—</div>
-            <div class="lbl">D̄obs (km)</div>
-          </div>
-          <div class="stat-box">
-            <div class="val" id="statDexp">—</div>
-            <div class="lbl">D̄exp (km)</div>
-          </div>
-        </div>
-        <div style="margin-top:1.25rem;padding:1rem;background:rgba(200,146,42,0.1);border-radius:8px;border-left:3px solid var(--gold)">
-          <p style="font-size:.82rem;color:rgba(245,237,216,0.8);line-height:1.65" id="nniInterpretasi">
-            Memuat interpretasi...
-          </p>
-        </div>
-      </div>
-
-      <!-- KLASTER PER KECAMATAN -->
-      <div class="cluster-card reveal" style="grid-column:1/-1">
-        <h3>Pola Klaster per Kecamatan</h3>
-        <p>Klasifikasi pola distribusi UMKM di setiap kecamatan berdasarkan kepadatan dan jarak antar titik.</p>
-        <div style="overflow-x:auto;margin-top:.5rem">
-          <table class="cluster-table">
-            <thead>
-              <tr>
-                <th>Kecamatan</th>
-                <th>Jml UMKM</th>
-                <th>Jarak Rata² (km)</th>
-                <th>Pola Distribusi</th>
-                <th>Kategori Klaster</th>
-              </tr>
-            </thead>
-            <tbody id="clusterTableBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- AKSESIBILITAS WISATA -->
-      <div class="cluster-card reveal">
-        <h3>Aksesibilitas ke Destinasi Wisata</h3>
-        <p>Berapa banyak UMKM dalam radius tertentu dari destinasi wisata utama Wonogiri.</p>
-        <div class="buffer-controls">
-          <button class="buf-btn active" onclick="calcBuffer(1,this)">Buffer 1 km</button>
-          <button class="buf-btn" onclick="calcBuffer(3,this)">Buffer 3 km</button>
-          <button class="buf-btn" onclick="calcBuffer(5,this)">Buffer 5 km</button>
-          <button class="buf-btn" onclick="calcBuffer(10,this)">Buffer 10 km</button>
-        </div>
-        <div id="bufferResult" style="margin-top:1rem"></div>
-      </div>
-
-      <!-- STATISTIK JARAK -->
-      <div class="cluster-card reveal">
-        <h3>Statistik Distribusi Spasial</h3>
-        <p>Ringkasan statistik jarak antar UMKM untuk mendukung interpretasi pola klaster.</p>
-        <div id="spatialStats" style="margin-top:1rem"></div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ROUTES -->
 <section class="routes" id="rute">
@@ -1171,67 +1079,6 @@
   </div>
 </section>
 
-<!-- METODOLOGI -->
-<section class="metodologi-section" id="metodologi">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-tag">Metodologi Penelitian</div>
-      <h2 class="sec-title">Metode & Teknik Analisis</h2>
-      <p class="sec-sub">Pendekatan ilmiah yang digunakan dalam pemetaan dan analisis spasial UMKM Kabupaten Wonogiri.</p>
-    </div>
-    <div class="metode-grid">
-      <div class="metode-card reveal">
-        <div class="icon">🗺️</div>
-        <h4>WebGIS</h4>
-        <p>Sistem Informasi Geografis berbasis web menggunakan Leaflet.js + OpenStreetMap sebagai basemap. Data koordinat dikumpulkan dari Google Places API.</p>
-      </div>
-      <div class="metode-card reveal">
-        <div class="icon">📐</div>
-        <h4>Nearest Neighbor Analysis</h4>
-        <p>Analisis tetangga terdekat (NNI) menggunakan rumus R = D̄obs / D̄exp untuk menentukan pola distribusi spasial: mengelompok, acak, atau menyebar.</p>
-      </div>
-      <div class="metode-card reveal">
-        <div class="icon">🎨</div>
-        <h4>Choropleth Mapping</h4>
-        <p>Peta tematik dengan pewarnaan berdasarkan kepadatan UMKM per kecamatan menggunakan skala warna hijau (rendah→tinggi).</p>
-      </div>
-      <div class="metode-card reveal">
-        <div class="icon">⭕</div>
-        <h4>Buffer Analysis</h4>
-        <p>Analisis zona penyangga (buffer) radius 1–10 km dari destinasi wisata untuk mengukur aksesibilitas UMKM terhadap arus wisatawan.</p>
-      </div>
-      <div class="metode-card reveal">
-        <div class="icon">📊</div>
-        <h4>Analisis Statistik Spasial</h4>
-        <p>Perhitungan mean center, standard distance, minimum/maksimum jarak NN, dan Z-score untuk mengukur signifikansi pola distribusi.</p>
-      </div>
-      <div class="metode-card reveal">
-        <div class="icon">🔍</div>
-        <h4>Sumber Data</h4>
-        <p>Data primer: Google Places API (koordinat, nama, kategori, rating). Data sekunder: BPS Wonogiri (luas wilayah 1.795 km², data kecamatan).</p>
-      </div>
-    </div>
-    <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:2rem;margin-top:2rem;border:1px solid rgba(200,146,42,0.15)" class="reveal">
-      <h4 style="font-family:var(--font-display);font-size:1.1rem;color:var(--brown-50);margin-bottom:1.25rem">Alur Penelitian</h4>
-      <div class="metode-step">
-        <div class="step-num">1</div>
-        <div class="step-content"><h5>Pengumpulan Data</h5><p>Pengambilan data koordinat UMKM & wisata Wonogiri via Google Places API, menghasilkan 86 titik dengan atribut lengkap.</p></div>
-      </div>
-      <div class="metode-step">
-        <div class="step-num">2</div>
-        <div class="step-content"><h5>Preprocessing Data</h5><p>Klasifikasi ke 11 kategori (waduk, pantai, bukit, goa, air terjun, kuliner, kafe, oleh-oleh, kerajinan, budaya, keluarga).</p></div>
-      </div>
-      <div class="metode-step">
-        <div class="step-num">3</div>
-        <div class="step-content"><h5>Analisis Spasial</h5><p>Perhitungan NNI, choropleth mapping, dan buffer analysis menggunakan algoritma berbasis koordinat geografis (WGS84).</p></div>
-      </div>
-      <div class="metode-step">
-        <div class="step-num">4</div>
-        <div class="step-content"><h5>Visualisasi WebGIS</h5><p>Integrasi hasil analisis ke platform WebGIS interaktif berbasis HTML5/JavaScript untuk aksesibilitas publik.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- TENTANG PENELITIAN -->
 <section class="about-section" id="tentang-penelitian">
@@ -1319,27 +1166,6 @@
   </div>
 </section>
 
-<!-- KESIMPULAN ANALISIS OTOMATIS -->
-<section class="kesimpulan-section" id="kesimpulan">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-tag" style="color:var(--teal-light);border-color:var(--teal-light)">Kesimpulan Penelitian</div>
-      <h2 class="sec-title">Kesimpulan Analisis Spasial</h2>
-      <p class="sec-sub">Kesimpulan otomatis berdasarkan hasil Nearest Neighbor Analysis, Buffer Analysis, dan Choropleth Mapping.</p>
-    </div>
-    <div class="kesimpulan-card reveal" id="kesimpulanCard">
-      <!-- Auto-generated by JS -->
-      <div style="text-align:center;padding:2rem;color:rgba(245,237,216,0.4)">⏳ Memuat kesimpulan...</div>
-    </div>
-    <div class="kesimpulan-highlight reveal" id="kesimpulanHighlight">
-      <p id="kesimpulanAbstrak">Memuat abstrak...</p>
-    </div>
-    <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap" class="reveal">
-      <button onclick="exportCSV()" class="btn-gold" style="display:inline-flex;align-items:center;gap:.5rem">📊 Export Data CSV</button>
-      <button onclick="window.print()" style="background:none;border:1.5px solid rgba(245,237,216,0.3);color:#E8D9C0;padding:11px 24px;border-radius:4px;font-family:var(--font-body);font-size:.875rem;cursor:pointer">🖨️ Print / PDF</button>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="container">
